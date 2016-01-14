@@ -1,7 +1,7 @@
 # Cake.AWS.CloudFront
 Cake Build addon for managing Amazon CloudFront CDN
 
-[![Build status](https://ci.appveyor.com/api/projects/status/4ymtu0it99v31726?svg=true)](https://ci.appveyor.com/project/PhillipSharpe/cake-aws-s3)
+[![Build status](https://ci.appveyor.com/api/projects/status/6b4ondpwl7unxrau?svg=true)](https://ci.appveyor.com/project/PhillipSharpe/cake-aws-cloudfront)
 
 [![cakebuild.net](https://img.shields.io/badge/WWW-cakebuild.net-blue.svg)](http://cakebuild.net/)
 
