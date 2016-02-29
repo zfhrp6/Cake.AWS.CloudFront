@@ -59,7 +59,9 @@ Setup(() =>
 {
     //Executed BEFORE the first task.
     Information("Building version {0} of {1}.", semVersion, appName);
+    Information("Tools dir: {0}.", tools);
 
+    // Install Tools
     NuGetInstall("xunit.runner.console", new NuGetInstallSettings
     {
         ExcludeVersion  = true,
@@ -154,6 +156,8 @@ Task("Run-Unit-Tests")
 {
     XUnit2("./src/**/bin/" + configuration + "/*.Tests.dll", new XUnit2Settings
     {
+        ToolPath = tools + "/xunit.runner.console/tools/xunit.console.exe",
+
         OutputDirectory = testResultsDir,
         XmlReportV1 = true
     });
@@ -168,7 +172,7 @@ Task("Run-Unit-Tests")
 ///////////////////////////////////////////////////////////////////////////////
 
 Task("Copy-Files")
-    .IsDependentOn("Build")
+    .IsDependentOn("Run-Unit-Tests")
     .Does(() =>
 {
     // Addin

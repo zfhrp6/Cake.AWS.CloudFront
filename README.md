@@ -37,7 +37,7 @@ Cake.AWS.CloudFront is available as a nuget package from the package manager con
 Install-Package Cake.AWS.CloudFront
 ```
 
-or directly in your build script via a cake addin:
+or directly in your build script via a cake addin directive:
 
 ```csharp
 #addin "Cake.AWS.CloudFront"
