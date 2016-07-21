@@ -1,12 +1,9 @@
 ﻿#region Using Statements
-    using System;
     using System.IO;
-    using System.Collections.Generic;
 
     using Cake.Core;
     using Cake.Core.IO;
-    using Cake.Core.Diagnostics;
-    using Cake.AWS.CloudFront;
+    using Cake.AWS.S3;
 
     using NSubstitute;
 #endregion
@@ -27,6 +24,11 @@ namespace Cake.AWS.CloudFront.Tests
             }
 
 
+        
+            public static IS3Manager CreateS3Manager()
+            {
+                return new S3Manager(new FileSystem(), CakeHelper.CreateEnvironment(), new DebugLog());
+            }
 
             public static ICloudFrontManager CreateCloudFrontManager()
             {

@@ -24,6 +24,7 @@ Cake Build addin for managing Amazon CloudFront CDN
 ## Implemented functionality
 
 * Create Invalidation
+* Uses AWS fallback credentials (app.config / web.config file, SDK store or credentials file, environment variables, instance profile)
 
 
 
@@ -61,6 +62,13 @@ Task("Invalidate-Object")
 
         Region = RegionEndpoint.EUWest1
     });
+});
+
+Task("Invalidate-Object-Fallback")
+    .Description("Invalidates a CloudFront object using AWS Fallback credentials")
+    .Does(() =>
+{
+    CreateInvalidation("distributionId", "item",  Context.CloudFrontSettings());
 });
 
 RunTarget("Invalidate-Object");

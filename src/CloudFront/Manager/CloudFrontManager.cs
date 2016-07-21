@@ -109,7 +109,7 @@ namespace Cake.AWS.CloudFront
 
 
 
-                _Log.Verbose("Create Invalidation", distributionId);
+                _Log.Verbose("Create Invalidation {0}", distributionId);
 
                 CreateInvalidationResponse response = client.CreateInvalidation(request);
 
@@ -119,7 +119,7 @@ namespace Cake.AWS.CloudFront
                 }
                 else
                 {
-                    _Log.Error("Create Invalidation", distributionId);
+                    _Log.Error("Error invalidating object {0}", distributionId);
 
                     return "";
                 }

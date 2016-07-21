@@ -1,3 +1,6 @@
+### New in 0.0.5 (Released 2016/06/02)
+* Not logging IDs correctly 
+
 ### New in 0.0.4 (Released 2016/05/20)
 * Use AWS FallbackCredentialsFactory
 * Add nuget dependencies

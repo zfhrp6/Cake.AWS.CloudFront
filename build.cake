@@ -152,6 +152,7 @@ Task("Build")
 
 Task("Run-Unit-Tests")
     .IsDependentOn("Build")
+    .WithCriteria(() => !isPullRequest)
     .Does(() =>
 {
     XUnit2("./src/**/bin/" + configuration + "/*.Tests.dll", new XUnit2Settings
