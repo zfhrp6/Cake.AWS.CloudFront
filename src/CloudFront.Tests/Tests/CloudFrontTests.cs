@@ -30,7 +30,7 @@ namespace Cake.AWS.CloudFront.Tests
 
             //Invalidate Keys
             ICloudFrontManager cloud = CakeHelper.CreateCloudFrontManager();
-            string invalidation = cloud.CreateInvalidation("E212F1OAIR275D", keys, CakeHelper.CreateEnvironment().CreateCloudFrontSettings());
+            string invalidation = cloud.CreateInvalidation("E212F1OAIR275D", keys, "", CakeHelper.CreateEnvironment().CreateCloudFrontSettings());
 
             Assert.NotNull(invalidation);
         }

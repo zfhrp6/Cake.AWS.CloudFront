@@ -61,20 +61,29 @@ namespace Cake.AWS.CloudFront
                 {
                     throw new ArgumentNullException("settings");
                 }
-                if (String.IsNullOrEmpty(settings.AccessKey))
-                {
-                    throw new ArgumentNullException("settings.AccessKey");
-                }
-                if (String.IsNullOrEmpty(settings.SecretKey))
-                {
-                    throw new ArgumentNullException("settings.SecretKey");
-                }
+                
                 if (settings.Region == null)
                 {
                     throw new ArgumentNullException("settings.Region");
                 }
 
-                return new AmazonCloudFrontClient(settings.AccessKey, settings.SecretKey, settings.Region);
+                if (settings.Credentials == null)
+                {
+                    if (String.IsNullOrEmpty(settings.AccessKey))
+                    {
+                        throw new ArgumentNullException("settings.AccessKey");
+                    }
+                    if (String.IsNullOrEmpty(settings.SecretKey))
+                    {
+                        throw new ArgumentNullException("settings.SecretKey");
+                    }
+
+                    return new AmazonCloudFrontClient(settings.AccessKey, settings.SecretKey, settings.Region);
+                }
+                else
+                {
+                    return new AmazonCloudFrontClient(settings.Credentials, settings.Region);
+                }
             }
         #endregion
 
@@ -88,17 +97,27 @@ namespace Cake.AWS.CloudFront
             /// </summary>
             /// <param name="distributionId">The distribution to invalidate objects from.</param>
             /// <param name="items">The path of the objects to invalidate.</param>
+            /// <param name="reference">A unique name that ensures the request can't be replayed.</param>
             /// <param name="settings">The <see cref="CloudFrontSettings"/> required to connect to Amazon CloudFront.</param>
-            public string CreateInvalidation(string distributionId, IList<string> items, CloudFrontSettings settings)
+            public string CreateInvalidation(string distributionId, IList<string> items, string reference, CloudFrontSettings settings)
             {
-                AmazonCloudFrontClient client = this.GetClient(settings);
+                //Get Reference
+                if (String.IsNullOrEmpty(reference))
+                {
+                    reference = DateTime.Now.Ticks.ToString();
+                }
 
+
+
+                //Create Request
                 InvalidationBatch batch = new InvalidationBatch()
                 {
                     Paths = new Paths()
                     {
                         Items = items.ToList()
-                    }
+                    },
+
+                    CallerReference = reference
                 };
 
                 CreateInvalidationRequest request = new CreateInvalidationRequest()
@@ -109,7 +128,10 @@ namespace Cake.AWS.CloudFront
 
 
 
+                //Send Request
                 _Log.Verbose("Create Invalidation {0}", distributionId);
+
+                AmazonCloudFrontClient client = this.GetClient(settings);
 
                 CreateInvalidationResponse response = client.CreateInvalidation(request);
 

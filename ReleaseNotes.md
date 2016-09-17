@@ -1,3 +1,6 @@
+### New in 0.0.6 (Released 2016/09/17)
+* Added reference parameter to aliases
+
 ### New in 0.0.5 (Released 2016/06/02)
 * Not logging IDs correctly 
 

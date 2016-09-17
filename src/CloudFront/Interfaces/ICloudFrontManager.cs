@@ -17,8 +17,9 @@ namespace Cake.AWS.CloudFront
             /// </summary>
             /// <param name="distributionId">The distribution to invalidate objects from.</param>
             /// <param name="items">The path of the objects to invalidate.</param>
+            /// <param name="reference">A unique name that ensures the request can't be replayed.</param>
             /// <param name="settings">The <see cref="CloudFrontSettings"/> required to connect to Amazon CloudFront.</param>
-            string CreateInvalidation(string distributionId, IList<string> items, CloudFrontSettings settings);
+            string CreateInvalidation(string distributionId, IList<string> items, string reference, CloudFrontSettings settings);
         #endregion
     }
 }
