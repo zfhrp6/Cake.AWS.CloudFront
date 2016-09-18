@@ -19,10 +19,10 @@ namespace Cake.AWS.CloudFront.Tests
             //Sync Directory
             SyncSettings settings = CakeHelper.CreateEnvironment().CreateSyncSettings();
             settings.BucketName = "cake-aws-s3";
-            settings.KeyPrefix = "cloudfront.tests";
+            settings.KeyPrefix = "cloudfront.tests/utils/";
 
             IS3Manager s3 = CakeHelper.CreateS3Manager();
-            IList<string> keys = s3.Sync(new DirectoryPath("../../"), settings);
+            IList<string> keys = s3.SyncUpload(new DirectoryPath("../../utils/"), settings);
 
             Assert.NotEmpty(keys);
 

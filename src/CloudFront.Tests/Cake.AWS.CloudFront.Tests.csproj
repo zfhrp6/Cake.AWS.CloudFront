@@ -43,15 +43,15 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="AWSSDK.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.AWS.S3.0.2.2\lib\net45\AWSSDK.Core.dll</HintPath>
+      <HintPath>..\packages\Cake.AWS.S3.0.2.8\lib\net45\AWSSDK.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="AWSSDK.S3, Version=3.1.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.AWS.S3.0.2.2\lib\net45\AWSSDK.S3.dll</HintPath>
+      <HintPath>..\packages\Cake.AWS.S3.0.2.8\lib\net45\AWSSDK.S3.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Cake.AWS.S3, Version=0.2.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.AWS.S3.0.2.2\lib\net45\Cake.AWS.S3.dll</HintPath>
+    <Reference Include="Cake.AWS.S3, Version=0.2.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cake.AWS.S3.0.2.8\lib\net45\Cake.AWS.S3.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Cake.Core, Version=0.11.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -59,7 +59,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="MimeSharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.AWS.S3.0.2.2\lib\net45\MimeSharp.dll</HintPath>
+      <HintPath>..\packages\Cake.AWS.S3.0.2.8\lib\net45\MimeSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NSubstitute, Version=1.10.0.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">

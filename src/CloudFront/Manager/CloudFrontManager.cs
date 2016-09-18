@@ -109,12 +109,26 @@ namespace Cake.AWS.CloudFront
 
 
 
+                //Correct Paths
+                List<string> paths = new List<string>();
+
+                foreach (string item in items)
+                {
+                    if (!item.StartsWith("/"))
+                    {
+                        paths.Add("/" + item);
+                    }
+                }
+
+
+
                 //Create Request
                 InvalidationBatch batch = new InvalidationBatch()
                 {
                     Paths = new Paths()
                     {
-                        Items = items.ToList()
+                        Items = paths.ToList(),
+                        Quantity = items.Count
                     },
 
                     CallerReference = reference
@@ -135,7 +149,7 @@ namespace Cake.AWS.CloudFront
 
                 CreateInvalidationResponse response = client.CreateInvalidation(request);
 
-                if (response.HttpStatusCode == System.Net.HttpStatusCode.OK)
+                if (response.HttpStatusCode == System.Net.HttpStatusCode.Created)
                 {
                     return response.Invalidation.Id;
                 }
