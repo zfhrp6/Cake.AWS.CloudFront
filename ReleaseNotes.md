@@ -1,3 +1,6 @@
+# New in 0.0.7 (Released 2017/01/04)
+* Update packages
+
 ### New in 0.0.6 (Released 2016/09/17)
 * Added reference parameter to aliases
 
