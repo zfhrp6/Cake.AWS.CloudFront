@@ -17,17 +17,19 @@
       <tags>Cake Script Build Amazon CloudFront CDN</tags>
 
        <dependencies>
-           <dependency id="Cake.Core" version="0.17.0" />
-           <dependency id="AWSSDK.Core" version="3.3.7.1" />
-           <dependency id="AWSSDK.CloudFront" version="3.3.2.2" />
+           <dependency id="Cake.Core" version="0.22.0" />
+           <dependency id="AWSSDK.Core" version="3.3.17.9" />
+           <dependency id="AWSSDK.CloudFront" version="3.3.5" />
        </dependencies>
    </metadata>
 
    <files>
-      <file src="AWSSDK.Core.dll" target="lib/net45" />
-      <file src="AWSSDK.CloudFront.dll" target="lib/net45" />
-      <file src="Cake.AWS.CloudFront.dll" target="lib/net45" />
-      <file src="Cake.AWS.CloudFront.xml" target="lib/net45" />
-      <file src="LICENSE" />
+       <file src="net461/Cake.AWS.CloudFront.dll" target="lib/net461" />
+       <file src="net461/Cake.AWS.CloudFront.xml" target="lib/net461" />
+       
+       <file src="net461/AWSSDK.Core.dll" target="lib/net461" />
+       <file src="net461/AWSSDK.CloudFront.dll" target="lib/net461" />
+
+       <file src="LICENSE" />
    </files>
 </package>
