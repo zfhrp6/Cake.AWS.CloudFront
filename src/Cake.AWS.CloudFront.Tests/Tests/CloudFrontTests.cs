@@ -26,7 +26,7 @@ namespace Cake.AWS.CloudFront.Tests
             IS3Manager s3 = CakeHelper.CreateS3Manager();
             IList<string> keys = s3.SyncUpload(new DirectoryPath("./utils/"), settings);
 
-            keys.ShouldBeEmpty();
+            keys.ShouldNotBeEmpty();
 
 
 
