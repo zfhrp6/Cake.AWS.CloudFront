@@ -1,3 +1,6 @@
+### New in 0.1.1 (Released 2017/10/07)
+* [Improvement] Updated Cake contrib icon
+
 ### New in 0.1.0 (Released 2017/10/07)
 * [Improvement] Updated Cake reference to v0.22.0
 * [Improvement] Moved to net461 for Cake compatibility
