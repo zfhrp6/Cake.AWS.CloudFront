@@ -1,5 +1,7 @@
 ﻿#region Using Statements
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 using Cake.Core;
 using Cake.Core.Annotations;
@@ -33,9 +35,9 @@ namespace Cake.AWS.CloudFront
         /// <param name="settings">The <see cref="CloudFrontSettings"/> required to connect to Amazon CloudFront.</param>
         [CakeMethodAlias]
         [CakeAliasCategory("CloudFront")]
-        public static void CreateInvalidation(this ICakeContext context, string distributionId, string item, CloudFrontSettings settings)
+        public static async Task<string> CreateInvalidation(this ICakeContext context, string distributionId, string item, CloudFrontSettings settings)
         {
-            context.CreateManager().CreateInvalidation(distributionId, new List<string>() { item }, "", settings);
+            return await context.CreateManager().CreateInvalidation(distributionId, new List<string>() { item }, "", settings);
         }
 
         /// <summary>
@@ -48,9 +50,9 @@ namespace Cake.AWS.CloudFront
         /// <param name="settings">The <see cref="CloudFrontSettings"/> required to connect to Amazon CloudFront.</param>
         [CakeMethodAlias]
         [CakeAliasCategory("CloudFront")]
-        public static void CreateInvalidation(this ICakeContext context, string distributionId, string item, string reference, CloudFrontSettings settings)
+        public static async Task<string> CreateInvalidation(this ICakeContext context, string distributionId, string item, string reference, CloudFrontSettings settings)
         {
-            context.CreateManager().CreateInvalidation(distributionId, new List<string>() { item }, reference, settings);
+            return await context.CreateManager().CreateInvalidation(distributionId, new List<string>() { item }, reference, settings);
         }
         
 
@@ -64,9 +66,9 @@ namespace Cake.AWS.CloudFront
         /// <param name="settings">The <see cref="CloudFrontSettings"/> required to connect to Amazon CloudFront.</param>
         [CakeMethodAlias]
         [CakeAliasCategory("CloudFront")]
-        public static void CreateInvalidation(this ICakeContext context, string distributionId, IList<string> items, CloudFrontSettings settings)
+        public static async Task<string> CreateInvalidation(this ICakeContext context, string distributionId, IList<string> items, CloudFrontSettings settings)
         {
-            context.CreateManager().CreateInvalidation(distributionId, items, "", settings);
+            return await context.CreateManager().CreateInvalidation(distributionId, items, "", settings);
         }
 
         /// <summary>
@@ -79,9 +81,9 @@ namespace Cake.AWS.CloudFront
         /// <param name="settings">The <see cref="CloudFrontSettings"/> required to connect to Amazon CloudFront.</param>
         [CakeMethodAlias]
         [CakeAliasCategory("CloudFront")]
-        public static void CreateInvalidation(this ICakeContext context, string distributionId, IList<string> items, string reference, CloudFrontSettings settings)
+        public static async Task<string> CreateInvalidation(this ICakeContext context, string distributionId, IList<string> items, string reference, CloudFrontSettings settings)
         {
-            context.CreateManager().CreateInvalidation(distributionId, items, reference, settings);
+            return await context.CreateManager().CreateInvalidation(distributionId, items, reference, settings);
         }
     }
 }

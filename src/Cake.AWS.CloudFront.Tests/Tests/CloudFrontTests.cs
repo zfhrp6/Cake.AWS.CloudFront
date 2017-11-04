@@ -1,6 +1,8 @@
 ﻿#region Using Statements
 using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 using Xunit;
 using Shouldly;
@@ -18,7 +20,7 @@ namespace Cake.AWS.CloudFront.Tests
     public class CloudFrontTests
     {
         [Fact]
-        public void Test_Invalidation()
+        public async Task Test_Invalidation()
         {
             //Sync Directory
             ICakeEnvironment env = CakeHelper.CreateEnvironment();
@@ -33,7 +35,7 @@ namespace Cake.AWS.CloudFront.Tests
             settings.KeyPrefix = "cloudfront.tests/utils/";
 
             IS3Manager s3 = CakeHelper.CreateS3Manager();
-            IList<string> keys = s3.SyncUpload(path, settings);
+            IList<string> keys = await s3.SyncUpload(path, settings);
 
             keys.ShouldNotBeEmpty();
 
@@ -41,7 +43,7 @@ namespace Cake.AWS.CloudFront.Tests
 
             //Invalidate Keys
             ICloudFrontManager cloud = CakeHelper.CreateCloudFrontManager();
-            string invalidation = cloud.CreateInvalidation("E212F1OAIR275D", keys, "", CakeHelper.CreateEnvironment().CreateCloudFrontSettings());
+            string invalidation = await cloud.CreateInvalidation("E212F1OAIR275D", keys, "", CakeHelper.CreateEnvironment().CreateCloudFrontSettings());
 
             invalidation.ShouldNotBeNullOrEmpty();
         }

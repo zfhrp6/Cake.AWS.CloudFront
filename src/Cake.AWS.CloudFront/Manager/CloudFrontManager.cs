@@ -2,6 +2,8 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 using Cake.Core;
 using Cake.Core.Diagnostics;
@@ -95,7 +97,8 @@ namespace Cake.AWS.CloudFront
         /// <param name="items">The path of the objects to invalidate.</param>
         /// <param name="reference">A unique name that ensures the request can't be replayed.</param>
         /// <param name="settings">The <see cref="CloudFrontSettings"/> required to connect to Amazon CloudFront.</param>
-        public string CreateInvalidation(string distributionId, IList<string> items, string reference, CloudFrontSettings settings)
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        public async Task<string> CreateInvalidation(string distributionId, IList<string> items, string reference, CloudFrontSettings settings, CancellationToken cancellationToken = default(CancellationToken))
         {
             //Get Reference
             if (String.IsNullOrEmpty(reference))
@@ -143,7 +146,7 @@ namespace Cake.AWS.CloudFront
 
             AmazonCloudFrontClient client = this.GetClient(settings);
 
-            CreateInvalidationResponse response = client.CreateInvalidation(request);
+            CreateInvalidationResponse response = await client.CreateInvalidationAsync(request);
 
             if (response.HttpStatusCode == System.Net.HttpStatusCode.Created)
             {

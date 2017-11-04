@@ -31,9 +31,9 @@ Setup(context =>
 
 Task("Invalidate-Object")
     .Description("Invalidates a CloudFront object")
-    .Does(() =>
+    .Does(async () =>
 {
-    CreateInvalidation("distributionId", "item", new Context.CreateCloudFrontSettings());
+    await CreateInvalidation("distributionId", "item", new Context.CreateCloudFrontSettings());
 });
 
 

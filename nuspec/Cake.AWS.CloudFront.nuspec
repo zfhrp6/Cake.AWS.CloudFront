@@ -24,12 +24,18 @@
    </metadata>
 
    <files>
-       <file src="net461/Cake.AWS.CloudFront.dll" target="lib/net461" />
-       <file src="net461/Cake.AWS.CloudFront.xml" target="lib/net461" />
+       <file src="net46/AWSSDK.Core.dll" target="lib/net46" />
+       <file src="net46/AWSSDK.CloudFront.dll" target="lib/net46" />
        
-       <file src="net461/AWSSDK.Core.dll" target="lib/net461" />
-       <file src="net461/AWSSDK.CloudFront.dll" target="lib/net461" />
+       <file src="net46/Cake.AWS.CloudFront.dll" target="lib/net46" />
+       <file src="net46/Cake.AWS.CloudFront.xml" target="lib/net46" />
+       <file src="net46/Cake.AWS.CloudFront.pdb" target="lib/net46" />
 
+       <file src="netstandard1.6/Cake.AWS.CloudFront.dll" target="lib/netstandard1.6" />
+       <file src="netstandard1.6/Cake.AWS.CloudFront.xml" target="lib/netstandard1.6" />
+       <file src="netstandard1.6/Cake.AWS.CloudFront.pdb" target="lib/netstandard1.6" />
+       <file src="netstandard1.6/Cake.AWS.CloudFront.deps.json" target="lib/netstandard1.6" />
+       
        <file src="LICENSE" />
    </files>
 </package>

@@ -53,9 +53,9 @@ or directly in your build script via a cake addin directive:
 
 Task("Invalidate-Object")
     .Description("Invalidates a CloudFront object")
-    .Does(() =>
+    .Does(async () =>
 {
-    CreateInvalidation("distributionId", "item", new CloudFrontSettings()
+    await CreateInvalidation("distributionId", "item", new CloudFrontSettings()
     {
         AccessKey = "blah",
         SecretKey = "blah",
@@ -66,9 +66,9 @@ Task("Invalidate-Object")
 
 Task("Invalidate-Object-Fallback")
     .Description("Invalidates a CloudFront object using AWS Fallback credentials")
-    .Does(() =>
+    .Does(async () =>
 {
-    CreateInvalidation("distributionId", "item",  Context.CloudFrontSettings());
+    await CreateInvalidation("distributionId", "item",  Context.CloudFrontSettings());
 });
 
 RunTarget("Invalidate-Object");
