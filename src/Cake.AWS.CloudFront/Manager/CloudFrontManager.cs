@@ -80,7 +80,14 @@ namespace Cake.AWS.CloudFront
                     throw new ArgumentNullException("settings.SecretKey");
                 }
 
-                return new AmazonCloudFrontClient(settings.AccessKey, settings.SecretKey, settings.Region);
+                if (!String.IsNullOrEmpty(settings.SessionToken))
+                {
+                    return new AmazonCloudFrontClient(settings.AccessKey, settings.SecretKey, settings.SessionToken, settings.Region);
+                }
+                else
+                {
+                    return new AmazonCloudFrontClient(settings.AccessKey, settings.SecretKey, settings.Region);
+                }
             }
             else
             {
