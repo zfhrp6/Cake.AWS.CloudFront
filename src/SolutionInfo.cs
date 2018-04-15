@@ -5,9 +5,8 @@
 //------------------------------------------------------------------------------
 using System.Reflection;
 
-[assembly: AssemblyProduct("Cake.AWS.CloudFront")]
-[assembly: AssemblyVersion("0.0.6")]
-[assembly: AssemblyFileVersion("0.0.6")]
-[assembly: AssemblyInformationalVersion("0.0.6")]
-[assembly: AssemblyCopyright("Copyright (c) 2015 - 2016 Phillip Sharpe")]
+[assembly: AssemblyVersion("0.2.2")]
+[assembly: AssemblyFileVersion("0.2.2")]
+[assembly: AssemblyInformationalVersion("0.2.2")]
+[assembly: AssemblyCopyright("Copyright (c) 2015 - 2018 Phillip Sharpe")]
 
