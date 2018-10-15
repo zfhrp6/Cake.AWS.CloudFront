@@ -31,6 +31,7 @@ Cake Build addin for managing Amazon CloudFront CDN
 ## Referencing
 
 [![NuGet Version](http://img.shields.io/nuget/v/Cake.AWS.CloudFront.svg?style=flat)](https://www.nuget.org/packages/Cake.AWS.CloudFront/)
+[![NuGet Downloads](http://img.shields.io/nuget/dt/Cake.AWS.CloudFront.svg?style=flat)](https://www.nuget.org/packages/Cake.AWS.CloudFront/)
 
 Cake.AWS.CloudFront is available as a nuget package from the package manager console:
 
