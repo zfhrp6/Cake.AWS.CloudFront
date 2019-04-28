@@ -15,6 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{409BC6DA
 		..\.gitignore = ..\.gitignore
 		..\appveyor.yml = ..\appveyor.yml
 		..\build.cake = ..\build.cake
+		..\cake.config = ..\cake.config
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{04DD68ED-2973-4B5E-964B-9FA607BB218D}"
@@ -29,9 +30,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget", "Nuget", "{3A8E8897
 		..\nuspec\Cake.AWS.CloudFront.nuspec = ..\nuspec\Cake.AWS.CloudFront.nuspec
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.AWS.CloudFront", "Cake.AWS.CloudFront\Cake.AWS.CloudFront.csproj", "{F15BD1B3-55FC-4D1D-844F-B7EF50260116}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.AWS.CloudFront", "Cake.AWS.CloudFront\Cake.AWS.CloudFront.csproj", "{F15BD1B3-55FC-4D1D-844F-B7EF50260116}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.AWS.CloudFront.Tests", "Cake.AWS.CloudFront.Tests\Cake.AWS.CloudFront.Tests.csproj", "{8D13501E-FBE4-4557-B155-1A3B11C9A120}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.AWS.CloudFront.Tests", "Cake.AWS.CloudFront.Tests\Cake.AWS.CloudFront.Tests.csproj", "{8D13501E-FBE4-4557-B155-1A3B11C9A120}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
