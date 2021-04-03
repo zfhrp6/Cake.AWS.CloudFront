@@ -63,7 +63,7 @@ namespace Cake.AWS.CloudFront
             {
                 throw new ArgumentNullException("settings");
             }
-                
+
             if (settings.Region == null)
             {
                 throw new ArgumentNullException("settings.Region");
@@ -166,6 +166,34 @@ namespace Cake.AWS.CloudFront
                 return "";
             }
         }
+
+        /// <summary>
+        /// Get invalidation information from a CloudFront distribution.
+        /// </summary>
+        /// <param name="distributionId">The distribution to invalidate objects from.</param>
+        /// <param name="invalidationId">The invalidation to get.</param>
+        /// <param name="settings">The <see cref="CloudFrontSettings"/> required to connect to Amazon CloudFront.</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        public async Task<string> GetInvalidation(string distributionId, string invalidationId, CloudFrontSettings settings, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            AmazonCloudFrontClient client = this.GetClient(settings);
+            GetInvalidationRequest request = new GetInvalidationRequest()
+            {
+                DistributionId = distributionId,
+                Id = invalidationId
+            };
+
+            _Log.Verbose("Get INvalidation {0}", distributionId);
+
+            GetInvalidationResponse response = await client.GetInvalidationAsync(request);
+            if (response.HttpStatusCode == System.Net.HttpStatusCode.OK)
+            {
+                return response.Invalidation.Status;
+            }
+            _Log.Error("Error getting invalidation information {0}", invalidationId);
+            return "";
+        }
+
         #endregion
     }
 }

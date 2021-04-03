@@ -85,5 +85,19 @@ namespace Cake.AWS.CloudFront
         {
             return await context.CreateManager().CreateInvalidation(distributionId, items, reference, settings);
         }
+
+        /// <summary>
+        /// Get invalidation status from a CloudFront distribution.
+        /// </summary>
+        /// <param name="context">The cake context.</param>
+        /// <param name="distributionId">The distribution to invalidate objects from.</param>
+        /// <param name="invalidationId">The invalidation to get.</param>
+        /// <param name="settings">The <see cref="CloudFrontSettings"/> required to connect to Amazon CloudFront.</param>
+        [CakeMethodAlias]
+        [CakeAliasCategory("CloudFront")]
+        public static async Task<string> GetInvalidation(this ICakeContext context, string distributionId, string invalidationId, CloudFrontSettings settings)
+        {
+            return await context.CreateManager().GetInvalidation(distributionId, invalidationId, settings);
+        }
     }
 }
