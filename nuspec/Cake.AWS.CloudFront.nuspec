@@ -14,11 +14,11 @@
       <requireLicenseAcceptance>false</requireLicenseAcceptance>
       <copyright>Copyright (c) Phillip Sharpe 2015</copyright>
       <releaseNotes>Initial Release</releaseNotes>
-      <tags>Cake Script Build Amazon CloudFront CDN</tags>
+      <tags>Cake cake-addin Script Build Amazon CloudFront CDN</tags>
 
        <dependencies>
-           <dependency id="AWSSDK.Core" version="3.3.101.2" />
-           <dependency id="AWSSDK.CloudFront" version="3.3.100.11" />
+           <dependency id="AWSSDK.Core" version="3.5.3.1" />
+           <dependency id="AWSSDK.CloudFront" version="3.5.6.15" />
        </dependencies>
    </metadata>
 

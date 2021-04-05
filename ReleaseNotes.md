@@ -1,3 +1,6 @@
+### New in 1.0.0 (Released 2021/04/05)
+* [Improvement] Update to Cake.Core v1.0.0
+
 ### New in 0.2.4 (Released 2019/04/28)
 * [Improvement] Update to Cake.Core v0.33
 
